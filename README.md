@@ -3,26 +3,33 @@
 First, put this bundle in your TextMate bundle directory:
 
 ```bash
-# For Textmate 2:
+# Textmate2
 mkdir -p ~/Library/Application\ Support/Avian/Bundles/
 cd ~/Library/Application\ Support/Avian/Bundles/
 git clone https://github.com/streeter/markdown-redcarpet.tmbundle.git
+
+# Then, make sure you've got `redcarpet` and `pygments.rb`
+# installed with your gem library with system's Ruby 1.8:
+unset GEM_HOME
+unset GEM_PATH
+
+sudo /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/gem install redcarpet -v 2.3.0
+sudo /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/gem install pygments.rb
 ```
 
+![Redcarpet Markdown Bundle in action](http://cl.ly/image/1Y071W2A2l1w/Screen%20Shot%202014-02-18%20at%2011.02.32%20am.png)
 
-Then, make sure you've got `redcarpet` and `pygments` installed with your gem library:
 
-```bash
-# Activate the system ruby (if you're using a Ruby version manager):
-rvm use system                          # for RVM
-export RBENV_VERSION="system"           # for rbenv
+### Supported syntaxes inside fenced blocks
 
-# Install the required gems
-sudo gem install redcarpet -v 2.3.0
-sudo gem install pygments.rb
-```
+The following syntaxes will be highlighted inside the fenced block:
 
-![Redcarpet Markdown Bundle in action](https://raw.github.com/streeter/markdown-redcarpet.tmbundle/master/theme-preview.png)
+- Ruby
+- Javascript (as js, javascript)
+- CoffeeScript (as coffee, coffeescript)
+- Shell (as shell, bash, sh)
+- Haml
+- R
 
 
 **Bonus** [Install the **Scott Web Theme** from *Preferences → Bundles*](https://raw.github.com/streeter/markdown-redcarpet.tmbundle/master/theme-preview-scott.png) for a nice looking preview
