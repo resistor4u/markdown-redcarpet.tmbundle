@@ -45,7 +45,7 @@ SW=${TM_SWEAVE_WD:=${TM_DIRECTORY}}
 # Actually run knitrBoostrap
 # More info at http://cran.at.r-project.org/web/packages/knitrBootstrap/index.html
 # You might want to change the code style, which 'chooser's so show and whether you want to show the code, figures, etc.
-echo -e "setwd('$SW');library(knitrBootstrap); if(packageVersion('knitrBootstrap') &lt; '1.0.0') knit_bootstrap('$FILENAME', code_style='Brown Paper', chooser=c('boot', 'code'), show_code=FALSE) else library(rmarkdown); render('$FILENAME', bootstrap_document(theme.chooser=TRUE, highlight.chooser=TRUE, highlight='Brown Paper'))" | ${USE_THIS_R} --vanilla --quiet | pre
+echo -e "setwd('$SW');library(knitrBootstrap); if(packageVersion('knitrBootstrap') &lt; '1.0.0') knit_bootstrap('$FILENAME', code_style='Brown Paper', chooser=c('boot', 'code'), show_code=FALSE) else library(rmarkdown); render('$FILENAME', bootstrap_document(theme.chooser=TRUE, highlight.chooser=TRUE))" | ${USE_THIS_R} --vanilla --quiet | pre
 
 # If there is output and it's newer than the current document, then we go directly to preview or link to it.
 
