@@ -31,8 +31,8 @@ cd "$TM_PROJECT_DIRECTORY"
 cd "$DIR"
 
 # Prepare output window.
-html_header 'knit html result with knitrBootstrap' "$FILENAME"
-echo '&lt;h2&gt;Kniting…&lt;/h2&gt;'
+html_header 'render with rmarkdown' "$FILENAME"
+echo '&lt;h2&gt;Rendering…&lt;/h2&gt;'
 
 # Choose R from the TextMate TM_REXEC variable or default to R
 if [ "$TM_REXEC" = "" ]
@@ -42,10 +42,9 @@ fi
 
 # Define working dir
 SW=${TM_SWEAVE_WD:=${TM_DIRECTORY}}
-# Actually run knitrBoostrap
-# More info at http://cran.at.r-project.org/web/packages/knitrBootstrap/index.html
-# You might want to change the code style, which 'chooser's so show and whether you want to show the code, figures, etc.
-echo -e "setwd('$SW');library(knitrBootstrap); if(packageVersion('knitrBootstrap') &lt; '1.0.0') knit_bootstrap('$FILENAME', code_style='Brown Paper', chooser=c('boot', 'code'), show_code=FALSE) else library(rmarkdown); render('$FILENAME', bootstrap_document(theme.chooser=TRUE, highlight.chooser=TRUE))" | ${USE_THIS_R} --vanilla --quiet | pre
+# Render with rmarkdown
+# Specify proper YAML, more info at http://rmarkdown.rstudio.com/
+echo -e "setwd('$SW'); library(rmarkdown); render('$FILENAME')" | ${USE_THIS_R} --vanilla --quiet | pre
 
 # If there is output and it's newer than the current document, then we go directly to preview or link to it.
 
@@ -62,7 +61,7 @@ html_footer
 	<key>keyEquivalent</key>
 	<string>~t</string>
 	<key>name</key>
-	<string>knit to html with knitrBootstrap</string>
+	<string>knit to html with rmarkdown</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
