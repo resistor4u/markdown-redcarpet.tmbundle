@@ -10,33 +10,14 @@ if ARGV.include?('--help')
   exit 0
 end
 
-require 'rubygems'
+$:.map{|p| File.expand_path(p.sub("/Users/msheets/rubyinstalled", "~/Library/Application Support/TextMate/Ruby/1.8.7"))}
 
-begin
-  require 'redcarpet'
-  require 'pygments'
-rescue LoadError
-  puts <<-HTML
-  <style>
-  .error h2 {color: red;}
-  .error .hint h3 {color: #555;}
-  </style>
-
-  <div class="error">
-  <h2>Please install the following gems on your system Ruby</h2>
-
-  <pre><code>
-  unset GEM_HOME
-  unset GEM_PATH
-
-  sudo /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/gem install redcarpet -v 2.3.0
-  sudo /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/gem install pygments.rb
-  </code></pre>
-
-  </div>
-  HTML
-  exit 0
+Dir[File.expand_path('../../gems/*/lib', __FILE__)].each do |dir|
+  $:.unshift dir
 end
+
+require 'redcarpet'
+require 'pygments'
 
 css = "<style>#{Pygments.css(:style => "colorful")}</style>"
 

@@ -74,6 +74,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#fenced_block_yaml</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#fenced_block_html</string>
 				</dict>
 				<dict>
@@ -231,7 +235,7 @@
 				<key>fenced_block_ruby</key>
 				<dict>
 					<key>begin</key>
-					<string>(^|\G)([`]{3})[ ]*ruby$</string>
+					<string>(^|\G|\n)([`]{3})[ ]*(?:ruby|rb)$</string>
 					<key>end</key>
 					<string>(^|\G)([`]{3})($|\z)</string>
 					<key>name</key>
@@ -257,6 +261,22 @@
 						<dict>
 							<key>include</key>
 							<string>source.shell</string>
+						</dict>
+					</array>
+				</dict>
+				<key>fenced_block_yaml</key>
+				<dict>
+					<key>begin</key>
+					<string>(^|\G)([`]{3})[ ]*(?:yaml)$</string>
+					<key>end</key>
+					<string>(^|\G)([`]{3})($|\z)</string>
+					<key>name</key>
+					<string>markup.raw.block.markdown.fenced</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.yaml</string>
 						</dict>
 					</array>
 				</dict>
