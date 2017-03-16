@@ -130,7 +130,7 @@
 				<key>fenced_block</key>
 				<dict>
 					<key>begin</key>
-					<string>((?:^|\G)```)[ ]*(?:\w*)</string>
+					<string>((?:^|\G)```) *(?:\w*) *</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -140,7 +140,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>((?:^|\G)```\n)</string>
+					<string>(^|\G)(```) *($|\z)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -155,9 +155,9 @@
 				<key>fenced_block_coffee</key>
 				<dict>
 					<key>begin</key>
-					<string>(^|\G)(```)[ ]*(?:coffee|coffeescript)$</string>
+					<string>(^|\G)(```) *(?:coffee|coffeescript) *$</string>
 					<key>end</key>
-					<string>(^|\G)(```)($|\z)</string>
+					<string>(^|\G)(```) *($|\z)</string>
 					<key>name</key>
 					<string>markup.raw.block.markdown.fenced.source.coffee</string>
 					<key>patterns</key>
@@ -171,9 +171,9 @@
 				<key>fenced_block_elixir</key>
 				<dict>
 					<key>begin</key>
-					<string>(^|\G)(```)[ ]*(?:elixir)$</string>
+					<string>(^|\G)(```) *(?:elixir) *$</string>
 					<key>end</key>
-					<string>(^|\G)(```)($|\z)</string>
+					<string>(^|\G)(```) *($|\z)</string>
 					<key>name</key>
 					<string>markup.raw.block.markdown.fenced.source.elixir</string>
 					<key>patterns</key>
@@ -187,9 +187,9 @@
 				<key>fenced_block_haml</key>
 				<dict>
 					<key>begin</key>
-					<string>(^|\G)(```)[ ]*(?:haml)$</string>
+					<string>(^|\G)(```) *(?:haml) *$</string>
 					<key>end</key>
-					<string>(^|\G)(```)($|\z)</string>
+					<string>(^|\G)(```) *($|\z)</string>
 					<key>name</key>
 					<string>markup.raw.block.markdown.fenced.text.html</string>
 					<key>patterns</key>
@@ -203,9 +203,9 @@
 				<key>fenced_block_html</key>
 				<dict>
 					<key>begin</key>
-					<string>(^|\G)(```)[ ]*(?:html)$</string>
+					<string>(^|\G)(```) *(?:html) *$</string>
 					<key>end</key>
-					<string>(^|\G)(```)($|\z)</string>
+					<string>(^|\G)(```) *($|\z)</string>
 					<key>name</key>
 					<string>markup.raw.block.markdown.fenced.text.html.basic</string>
 					<key>patterns</key>
@@ -219,9 +219,9 @@
 				<key>fenced_block_javascript</key>
 				<dict>
 					<key>begin</key>
-					<string>(^|\G)(```)[ ]*(?:js|javascript)$</string>
+					<string>(^|\G)(```) *(?:js|javascript) *$</string>
 					<key>end</key>
-					<string>(^|\G)(```)($|\z)</string>
+					<string>(^|\G)(```) *($|\z)</string>
 					<key>name</key>
 					<string>markup.raw.block.markdown.fenced.soutce.js</string>
 					<key>patterns</key>
@@ -237,7 +237,7 @@
 					<key>begin</key>
 					<string>(^|\G)(```)\{*[ ]*(?:r|R).*\}*$</string>
 					<key>end</key>
-					<string>(^|\G)(```)($|\z)</string>
+					<string>(^|\G)(```) *($|\z)</string>
 					<key>name</key>
 					<string>source.r.embedded.rmarkdown</string>
 					<key>patterns</key>
@@ -251,9 +251,9 @@
 				<key>fenced_block_ruby</key>
 				<dict>
 					<key>begin</key>
-					<string>(^|\G)(```)[ ]*(?:rb|ruby)$</string>
+					<string>(^|\G)(```) *(?:rb|ruby) *$</string>
 					<key>end</key>
-					<string>(^|\G)(```)($|\z)</string>
+					<string>(^|\G)(```) *($|\z)</string>
 					<key>name</key>
 					<string>markup.raw.block.markdown.fenced.source.ruby</string>
 					<key>patterns</key>
@@ -267,9 +267,9 @@
 				<key>fenced_block_shell</key>
 				<dict>
 					<key>begin</key>
-					<string>(^|\G)(```)[ ]*(?:bash|shell|sh)$</string>
+					<string>(^|\G)(```) *(?:bash|shell|sh) *$</string>
 					<key>end</key>
-					<string>(^|\G)(```)($|\z)</string>
+					<string>(^|\G)(```) *($|\z)</string>
 					<key>name</key>
 					<string>markup.raw.block.markdown.fenced.source.shell</string>
 					<key>patterns</key>
@@ -283,9 +283,9 @@
 				<key>fenced_block_yaml</key>
 				<dict>
 					<key>begin</key>
-					<string>(^|\G)(```)[ ]*(?:yaml)$</string>
+					<string>(^|\G)(```) *(?:yaml) *$</string>
 					<key>end</key>
-					<string>(^|\G)(```)($|\z)</string>
+					<string>(^|\G)(```) *($|\z)</string>
 					<key>name</key>
 					<string>markup.raw.block.markdown.fenced.source.yaml</string>
 					<key>patterns</key>
