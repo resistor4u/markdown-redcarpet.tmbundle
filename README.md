@@ -32,7 +32,7 @@ The following syntaxes will be highlighted inside the fenced block:
 
 Reload TextMate and tell it to read `.md` files as Markdown Redcarpet types.
 
-You will need a theme that is properly scoped to render the syntax. Check whichever theme is currently in use, and go to edit `~/Library/Application\ Support/TextMate/Bundles/Themes.tmbundle/Themes/___YOURTHEMENAME___.thTheme`. You will minimally want the following entry:
+You will need a theme properly scoped to render the syntax, if you don't already. Check whichever theme is currently in use, and go to edit `~/Library/Application\ Support/TextMate/Bundles/Themes.tmbundle/Themes/___YOURTHEMENAME___.thTheme`. You will minimally want the following entry:
 ```xml
 			<dict>
 				<key>name</key>
@@ -58,15 +58,22 @@ You will need a theme that is properly scoped to render the syntax. Check whiche
 ```
 The `foreground` and `background` colors are just for demo, so change them. Note: the key to changing the font is `fontName` and **__NOT__** `fontFamily`.
 
-
-For more information about GitHub's Redcarpet markdown, [checkout this post][github-flavored-markdown].
-
-
-[github-flavored-markdown]: http://github.github.com/github-flavored-markdown/
-[github-theme]: https://github.com/kneath/github_textmate_preview
-
 ## R Markdown
 
 This bundle also supports [R Markdown](http://www.rstudio.com/ide/docs/r_markdown) files (Rmd, rmd) by properly scoping fenced [R code](http://cran.r-project.org/) chunks and inline R code to the R source syntax when used with the [R TextMate bundle](https://github.com/textmate/r.tmbundle). You can then use the commands from the [R TextMate bundle](https://github.com/textmate/r.tmbundle) to evaluate R code, send it to the R GUI, etc. This bundle includes two commands to _knit_ R Markdown files and produce the HTML result: one uses the [knitr](http://cran.r-project.org/web/packages/knitr/index.html) package while the other one (recommended, see why [here](http://lcolladotor.github.io/2013/12/10/knitrBootstrap/)) uses the [knitrBootstrap](http://cran.at.r-project.org/web/packages/knitrBootstrap/index.html) package.
 
 For R noweb files (Rnw, rnw) you might be interested in the [knitr TextMate bundle](https://github.com/fonnesbeck/knitr.tmbundle) which bridges LaTeX and R code.
+
+### More R styling
+
+The `R.tmbundle` is dated. To correctly colorize language features from newer versions of R (e.g., the addition of magrittr `|>` or `%>%`), you may want to edit the plist `~/Library/Application\ Support/TextMate/Mangaged/Bundles/R.tmbundle/Syntaxes/R.plist`, the match string for `keyword.operator.assignment.r`:
+```xml
+		<dict>
+			<key>match</key>
+			<string>(=|&lt;-|&lt;&lt;-|-&gt;|-&gt;&gt;|%&gt;%|\|&gt;)</string>
+			<key>name</key>
+			<string>keyword.operator.assignment.r</string>
+		</dict>
+```
+
+These changes also pushed to [r.tmbundle](https://github.com/textmate/r.tmbundle/commit/cedb0e1c1877ae499ccfc959355730040e1a3408).
