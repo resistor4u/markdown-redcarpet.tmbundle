@@ -235,9 +235,9 @@
 				<key>fenced_block_r</key>
 				<dict>
 					<key>begin</key>
-					<string>(^|\G)(```)\{*[ ]*(?:r|R).*\}*$</string>
+					<string>(^|\G)(```)\{\s*(?:r|R)(?:\s+\w+)?\s*\}</string>
 					<key>end</key>
-					<string>(^|\G)(```) *($|\z)</string>
+					<string>(^|\G)(```)\n</string>
 					<key>name</key>
 					<string>source.r.embedded.rmarkdown</string>
 					<key>patterns</key>
