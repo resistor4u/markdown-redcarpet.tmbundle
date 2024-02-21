@@ -32,6 +32,33 @@ The following syntaxes will be highlighted inside the fenced block:
 
 Reload TextMate and tell it to read `.md` files as Markdown Redcarpet types.
 
+You will need a theme that is properly scoped to render the syntax. Check whichever theme is currently in use, and go to edit `~/Library/Application\ Support/TextMate/Bundles/Themes.tmbundle/Themes/___YOURTHEMENAME___.thTheme`. You will minimally want the following entry:
+```xml
+			<dict>
+				<key>name</key>
+				<string>R embedded code</string>
+				<key>scope</key>
+				<string>source.r.embedded.rmarkdown</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#60A365</string>
+					<key>background</key>
+					<string>#58534F</string>
+					<key>fontSize</key>
+					<string></string>
+					<key>fontName</key>
+					<string>Consolas</string>
+					<key>fontStyle</key>
+					<string>italic</string> <!-- You can specify additional font styles if needed -->
+				</dict>
+			</dict>			
+		</array>
+	</dict>
+```
+The `foreground` and `background` colors are just for demo, so change them. Note: the key to changing the font is `fontName` and **__NOT__** `fontFamily`.
+
+
 For more information about GitHub's Redcarpet markdown, [checkout this post][github-flavored-markdown].
 
 
