@@ -44,6 +44,7 @@ def markdown(text)
     :fenced_code_blocks  => true,
     :tables              => true,
     :strikethrough       => true,
+    :footnotes           => true,
     :smart               => true,
     :hard_wrap           => true,
     :safelink            => true,
