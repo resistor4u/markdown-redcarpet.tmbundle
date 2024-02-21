@@ -1,12 +1,12 @@
 # TextMate Bundle for GitHub's Redcarpet Markdown
 
-First, put this bundle in your TextMate bundle directory:
+These instructions were changed 2024-02-21 to work with more recent MacOS versions. First, put this bundle in your TextMate bundle directory:
 
 ```bash
 # Textmate2
-mkdir -p ~/Library/Application\ Support/Avian/Bundles/
-cd ~/Library/Application\ Support/Avian/Bundles/
-git clone https://github.com/streeter/markdown-redcarpet.tmbundle.git
+mkdir -p ~/Library/Application\ Support/TextMate/Bundles/
+cd ~/Library/Application\ Support/TextMate/Bundles/
+git clone -b sillycon https://github.com/resistor4u/markdown-redcarpet.tmbundle.git
 
 cd Support/gems
 # remove the old dirs
@@ -19,9 +19,6 @@ cd redcarpet-3.4...
 rake -I../rake-compiler-1.0.3/lib compile
 ```
 
-![Redcarpet Markdown Bundle in action](http://cl.ly/image/1Y071W2A2l1w/Screen%20Shot%202014-02-18%20at%2011.02.32%20am.png)
-
-
 ### Supported syntaxes inside fenced blocks
 
 The following syntaxes will be highlighted inside the fenced block:
@@ -32,9 +29,6 @@ The following syntaxes will be highlighted inside the fenced block:
 - Shell (as shell, bash, sh)
 - Haml
 - R
-
-
-**Bonus** [Install the **Scott Web Theme** from *Preferences → Bundles*](https://raw.github.com/streeter/markdown-redcarpet.tmbundle/master/theme-preview-scott.png) for a nice looking preview
 
 Reload TextMate and tell it to read `.md` files as Markdown Redcarpet types.
 
